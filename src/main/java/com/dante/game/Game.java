@@ -49,4 +49,17 @@ public class Game {
     public int computerScore() {
         return computer.handValue();
     }
+
+    public GameState determineState() {
+        int playerScore = player.handValue();
+        int computerScore = computer.handValue();
+
+        if (playerScore < 21 || computerScore < 17) {
+            return GameState.IN_PROGRESS;
+        } else if (playerScore == 21 || computerScore == 21 ) {
+            return GameState.GAME_OVER;
+        } else {
+            return GameState.GAME_OVER;
+        }
+    }
 }
